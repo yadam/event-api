@@ -23,7 +23,7 @@ This server will handle several endpoints for various purposes.
   - Verb: `POST`
   - URL: http://localhost:3000/users
   - Example body:
-    - ```
+    - ```json
       {
         "email": "adam@example.com",
         "password": "myPassword",
@@ -31,7 +31,7 @@ This server will handle several endpoints for various purposes.
       }
       ```
   - Example response:
-    - ```
+    - ```json
       {
         "email": "adam@example.com",
         "phone": "123-456-7890"
@@ -42,29 +42,32 @@ This server will handle several endpoints for various purposes.
 - Create an event for a user
   - Verb: `POST`
   - URL: http://localhost:3000/users/adam@example.com/events
-  - Example body: `{ "type": "LOGIN" }`
+  - Example body:
+    - ```json
+      { "type": "LOGIN" }
+      ```
   - Example response:
-    - ```
-        {
-          "type": "LOGIN",
-          "id": "ck6chf49f0004bd805segg593",
-          "userId": "adam@example.com",
-          "created": "2020-02-07T18:07:08.883Z"
-        }
+    - ```json
+      {
+        "type": "LOGIN",
+        "id": "ck6chf49f0004bd805segg593",
+        "userId": "adam@example.com",
+        "created": "2020-02-07T18:07:08.883Z"
+      }
       ```
 - Get all events for all users
   - Verb: `GET`
   - URL: http://localhost:3000/events
   - Example response:
-    - ```
-        [
-          {
-              "type": "LOGIN",
-              "userId": "adam@example.com",
-              "id": "ck6chev9y0000bd80870da4zh",
-              "created": "2020-02-07T18:06:57.239Z"
-          },
-        ]
+    - ```json
+      [
+        {
+          "type": "LOGIN",
+          "userId": "adam@example.com",
+          "id": "ck6chev9y0000bd80870da4zh",
+          "created": "2020-02-07T18:06:57.239Z"
+        }
+      ]
       ```
   - Available query parameters:
     - `startDate` - This can be a number or a date string that is parsable by the JavaScript Date constructor. Passing a number will indicate the number of milliseconds since epoch. This represents the beginning of the date range for the fetched events. Defaults to epoch.
@@ -73,15 +76,15 @@ This server will handle several endpoints for various purposes.
   - Verb: `GET`
   - URL: http://localhost:3000/users/adam@example.com/events
   - Example response:
-    - ```
-        [
-          {
-              "type": "LOGIN",
-              "userId": "adam@example.com",
-              "id": "ck6chev9y0000bd80870da4zh",
-              "created": "2020-02-07T18:06:57.239Z"
-          },
-        ]
+    - ```json
+      [
+        {
+          "type": "LOGIN",
+          "userId": "adam@example.com",
+          "id": "ck6chev9y0000bd80870da4zh",
+          "created": "2020-02-07T18:06:57.239Z"
+        }
+      ]
       ```
   - Available query parameters:
     - `startDate` - This can be a number or a date string that is parsable by the JavaScript Date constructor. Passing a number will indicate the number of milliseconds since epoch. This represents the beginning of the date range for the fetched events. Defaults to epoch.
