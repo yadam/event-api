@@ -12,7 +12,7 @@ describe('events', () => {
     expect(actual.type).toEqual('LOGIN');
     expect(actual.userId).toEqual('adam@bantly.com');
     expect(actual.id).not.toBeUndefined();
-    expect(actual.createdOn instanceof Date).toBeTruthy();
+    expect(actual.created instanceof Date).toBeTruthy();
   });
 
   it('should get all events for all users', () => {
@@ -76,13 +76,13 @@ describe('events', () => {
         set(input[i]);
       }
 
-      // Modify the data by setting the first 3 records to have an older createdOn date
+      // Modify the data by setting the first 3 records to have an older created date
       const cache = _getCache();
       const updated = { ...cache };
       const keys = Object.keys(updated);
-      updated[keys[0]].createdOn = new Date(Date.now() - 100);
-      updated[keys[1]].createdOn = new Date(Date.now() - 100);
-      updated[keys[2]].createdOn = new Date(Date.now() - 100);
+      updated[keys[0]].created = new Date(Date.now() - 100);
+      updated[keys[1]].created = new Date(Date.now() - 100);
+      updated[keys[2]].created = new Date(Date.now() - 100);
       _setCache(updated);
 
       let actual = get(undefined, startTime, Date.now());
@@ -107,13 +107,13 @@ describe('events', () => {
         set(input[i]);
       }
 
-      // Modify the data by setting the first 3 records to have an older createdOn date
+      // Modify the data by setting the first 3 records to have an older created date
       const cache = _getCache();
       const updated = { ...cache };
       const keys = Object.keys(updated);
-      updated[keys[0]].createdOn = new Date(Date.now() - 100);
-      updated[keys[1]].createdOn = new Date(Date.now() - 100);
-      updated[keys[2]].createdOn = new Date(Date.now() - 100);
+      updated[keys[0]].created = new Date(Date.now() - 100);
+      updated[keys[1]].created = new Date(Date.now() - 100);
+      updated[keys[2]].created = new Date(Date.now() - 100);
       _setCache(updated);
 
       let actual = get(undefined, startTime);

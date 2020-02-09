@@ -49,7 +49,7 @@ This server will handle several endpoints for various purposes.
           "type": "LOGIN",
           "id": "ck6chf49f0004bd805segg593",
           "userId": "adam@example.com",
-          "createdOn": "2020-02-07T18:07:08.883Z"
+          "created": "2020-02-07T18:07:08.883Z"
         }
       ```
 - Get all events for all users
@@ -62,7 +62,7 @@ This server will handle several endpoints for various purposes.
               "type": "LOGIN",
               "userId": "adam@example.com",
               "id": "ck6chev9y0000bd80870da4zh",
-              "createdOn": "2020-02-07T18:06:57.239Z"
+              "created": "2020-02-07T18:06:57.239Z"
           },
         ]
       ```
@@ -79,7 +79,7 @@ This server will handle several endpoints for various purposes.
               "type": "LOGIN",
               "userId": "adam@example.com",
               "id": "ck6chev9y0000bd80870da4zh",
-              "createdOn": "2020-02-07T18:06:57.239Z"
+              "created": "2020-02-07T18:06:57.239Z"
           },
         ]
       ```

@@ -10,7 +10,7 @@ exports.get = (userId = undefined, start = 0, end = Date.now()) => {
     const startDate = new Date(start);
     const endDate = new Date(end);
     Object.values(cache).forEach(event => {
-        if (event.createdOn >= startDate && event.createdOn <= endDate) {
+        if (event.created >= startDate && event.created <= endDate) {
             if (!userId || event.userId === userId) {
                 result.push(event);
             }
@@ -19,7 +19,7 @@ exports.get = (userId = undefined, start = 0, end = Date.now()) => {
     return result;
 };
 exports.set = (e) => {
-    const event = { ...e, id: cuid_1.default(), createdOn: new Date() };
+    const event = { ...e, id: cuid_1.default(), created: new Date() };
     cache[event.id] = event;
     return event;
 };

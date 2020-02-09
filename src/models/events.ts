@@ -7,7 +7,7 @@ export interface InboundEvent {
 
 export interface Event extends InboundEvent {
   id: string;
-  createdOn: Date;
+  created: Date;
 }
 
 interface EventCache {
@@ -25,7 +25,7 @@ export const get = (
   const startDate = new Date(start);
   const endDate = new Date(end);
   Object.values(cache).forEach(event => {
-    if (event.createdOn >= startDate && event.createdOn <= endDate) {
+    if (event.created >= startDate && event.created <= endDate) {
       if (!userId || event.userId === userId) {
         result.push(event);
       }
@@ -35,7 +35,7 @@ export const get = (
 };
 
 export const set = (e: InboundEvent): Event => {
-  const event: Event = { ...e, id: cuid(), createdOn: new Date() };
+  const event: Event = { ...e, id: cuid(), created: new Date() };
   cache[event.id] = event;
   return event;
 };
